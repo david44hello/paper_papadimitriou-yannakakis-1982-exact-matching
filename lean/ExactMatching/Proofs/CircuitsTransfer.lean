@@ -1,9 +1,13 @@
 /-
 Copyright (C) Dave Goel 2026--now. Licensed under the Apache License 2.0; see LICENSE.
 -/
-import ExactMatching.Defs.Circuits
-import Mathlib.Algebra.MvPolynomial.Equiv
-import Mathlib.Algebra.Polynomial.Roots
+module
+
+public import ExactMatching.Defs.Circuits
+public import Mathlib.Algebra.MvPolynomial.Equiv
+public import Mathlib.Algebra.Polynomial.Roots
+
+@[expose] public section
 
 /-!
 # Proofs of multivariate grid nonvanishing and `RatCircuit` model transfer (Lemma 2.2)

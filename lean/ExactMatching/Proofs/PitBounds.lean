@@ -1,13 +1,17 @@
 /-
 Copyright (C) Dave Goel 2026--now. Licensed under the Apache License 2.0; see LICENSE.
 -/
-import ExactMatching.Defs.PitAlgorithm
-import ExactMatching.Proofs.CircuitsTransfer
-import Mathlib.Analysis.Complex.ExponentialBounds
-import Mathlib.Analysis.SpecialFunctions.Log.Basic
-import Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics
-import Mathlib.Tactic.Linarith
-import Mathlib.Tactic.Positivity
+module
+
+public import ExactMatching.Defs.PitAlgorithm
+public import ExactMatching.Proofs.CircuitsTransfer
+public import Mathlib.Analysis.Complex.ExponentialBounds
+public import Mathlib.Analysis.SpecialFunctions.Log.Basic
+public import Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.Positivity
+
+@[expose] public section
 
 /-!
 # Proofs for Theorem 1 (Ryser, modulus exactness, parameter & asymptotic bounds) and Remark 1

@@ -1,10 +1,14 @@
 /-
 Copyright (C) Dave Goel 2026--now. Licensed under the Apache License 2.0; see LICENSE.
 -/
-import ExactMatching.Defs.PfaffianMatching
-import Mathlib.Data.Fintype.BigOperators
-import Mathlib.Data.ZMod.Basic
-import Mathlib.Tactic.Linarith
+module
+
+public import ExactMatching.Defs.PfaffianMatching
+public import Mathlib.Data.Fintype.BigOperators
+public import Mathlib.Data.ZMod.Basic
+public import Mathlib.Tactic.Linarith
+
+@[expose] public section
 
 /-!
 # Proofs for Theorem 2 (Odd `n`, edge-deletion self-reduction, and cyclic-group embeddings)

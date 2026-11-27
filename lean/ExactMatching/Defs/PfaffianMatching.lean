@@ -1,13 +1,17 @@
 /-
 Copyright (C) Dave Goel 2026--now. Licensed under the Apache License 2.0; see LICENSE.
 -/
-import ExactMatching.Defs.Circuits
-import Mathlib.Algebra.MonoidAlgebra.Defs
-import Mathlib.Combinatorics.SimpleGraph.Basic
-import Mathlib.Combinatorics.SimpleGraph.Finite
-import Mathlib.Data.Nat.Factorial.Basic
-import Mathlib.Data.ZMod.Basic
-import Mathlib.GroupTheory.Perm.Sign
+module
+
+public import ExactMatching.Defs.Circuits
+public import Mathlib.Algebra.MonoidAlgebra.Defs
+public import Mathlib.Combinatorics.SimpleGraph.Basic
+public import Mathlib.Combinatorics.SimpleGraph.Finite
+public import Mathlib.Data.Nat.Factorial.Basic
+public import Mathlib.Data.ZMod.Basic
+public import Mathlib.GroupTheory.Perm.Sign
+
+@[expose] public section
 
 /-!
 # Perfect matchings, Pfaffian over `ℤ[Γ][x]`, circuit wire-expansion, and self-reduction
@@ -42,14 +46,25 @@ noncomputable def perfectMatchings {n : ℕ} (G : SimpleGraph (Fin n)) :
     Finset (Finset (Sym2 (Fin n))) :=
   open Classical in Finset.univ.filter (IsPerfectMatching G)
 
+/-- The first slot of pair `i` is an index of the full permutation. -/
+theorem pairingEvenIndexLt {k : ℕ} (i : Fin k) : 2 * i.val < 2 * k :=
+  Nat.mul_lt_mul_of_pos_left i.isLt (Nat.zero_lt_succ 1)
+
+/-- The second slot of pair `i` is also an index of the full permutation. -/
+theorem pairingOddIndexLt {k : ℕ} (i : Fin k) : 2 * i.val + 1 < 2 * k := by
+  calc
+    2 * i.val + 1 < 2 * i.val + 2 := Nat.lt_succ_self _
+    _ = 2 * (i.val + 1) := (Nat.mul_succ 2 i.val).symm
+    _ ≤ 2 * k := Nat.mul_le_mul_left 2 i.isLt
+
 /-- A canonical pairing of `Fin (2 * k)` into `k` disjoint ordered pairs
 `(u_0, v_0), ..., (u_{k-1}, v_{k-1})` with `u_i < v_i` and `u_0 < u_1 < ... < u_{k-1}`. -/
 structure OrderedPairing (k : ℕ) where
   perm : Equiv.Perm (Fin (2 * k))
   pair_lt : ∀ i : Fin k,
-    perm ⟨2 * i.val, by omega⟩ < perm ⟨2 * i.val + 1, by omega⟩
+    perm ⟨2 * i.val, pairingEvenIndexLt i⟩ < perm ⟨2 * i.val + 1, pairingOddIndexLt i⟩
   fst_mono : ∀ i j : Fin k, i < j →
-    perm ⟨2 * i.val, by omega⟩ < perm ⟨2 * j.val, by omega⟩
+    perm ⟨2 * i.val, pairingEvenIndexLt i⟩ < perm ⟨2 * j.val, pairingEvenIndexLt j⟩
 
 instance instDecidableEqOrderedPairing (k : ℕ) : DecidableEq (OrderedPairing k) :=
   fun a b =>
@@ -70,14 +85,14 @@ def OrderedPairing.sign {k : ℕ} (m : OrderedPairing k) : ℤ :=
 /-- Underlying edge finset of an ordered pairing of `K_{2k}`. -/
 def OrderedPairing.edgeFinset {k : ℕ} (m : OrderedPairing k) : Finset (Sym2 (Fin (2 * k))) :=
   Finset.univ.image fun i : Fin k =>
-    s(m.perm ⟨2 * i.val, by omega⟩, m.perm ⟨2 * i.val + 1, by omega⟩)
+    s(m.perm ⟨2 * i.val, pairingEvenIndexLt i⟩, m.perm ⟨2 * i.val + 1, pairingOddIndexLt i⟩)
 
 /-- The Pfaffian of a `(2k) × (2k)` matrix `M` over any commutative ring `R`, defined by its
 universal matching sum `∑_M sgn(M) ∏_{{u,v} ∈ M, u < v} M_{u, v}`. -/
 noncomputable def pfaffian {k : ℕ} {R : Type*} [CommRing R]
     (M : Matrix (Fin (2 * k)) (Fin (2 * k)) R) : R :=
   ∑ m : OrderedPairing k,
-    (m.sign : R) * ∏ i : Fin k, M (m.perm ⟨2 * i.val, by omega⟩) (m.perm ⟨2 * i.val + 1, by omega⟩)
+    (m.sign : R) * ∏ i : Fin k, M (m.perm ⟨2 * i.val, pairingEvenIndexLt i⟩) (m.perm ⟨2 * i.val + 1, pairingOddIndexLt i⟩)
 
 /-- The universal integer Pfaffian polynomial `Pf(Z) ∈ ℤ[{Z_{u,v} : u < v}]`. -/
 noncomputable def universalPfaffian (k : ℕ) : MvPolynomial (UpperPair (2 * k)) ℤ :=

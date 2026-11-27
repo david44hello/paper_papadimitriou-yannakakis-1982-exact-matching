@@ -1,11 +1,15 @@
 /-
 Copyright (C) Dave Goel 2026--now. Licensed under the Apache License 2.0; see LICENSE.
 -/
-import ExactMatching.Defs.CitedHypotheses
-import ExactMatching.Defs.PitAlgorithm
-import ExactMatching.Proofs.CircuitsTransfer
-import ExactMatching.Proofs.PitBounds
-import ExactMatching.Proofs.Reconstruction
+module
+
+public import ExactMatching.Defs.CitedHypotheses
+public import ExactMatching.Defs.PitAlgorithm
+public import ExactMatching.Proofs.CircuitsTransfer
+public import ExactMatching.Proofs.PitBounds
+public import ExactMatching.Proofs.Reconstruction
+
+@[expose] public section
 
 /-!
 # Proofs of Theorem 1 (core PIT correctness) and Corollary 1 (`[A26]` instantiation)

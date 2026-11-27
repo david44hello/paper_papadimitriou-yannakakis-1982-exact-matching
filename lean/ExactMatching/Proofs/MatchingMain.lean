@@ -1,14 +1,18 @@
 /-
 Copyright (C) Dave Goel 2026--now. Licensed under the Apache License 2.0; see LICENSE.
 -/
-import ExactMatching.Defs.CitedHypotheses
-import ExactMatching.Defs.PfaffianMatching
-import ExactMatching.Defs.PitAlgorithm
-import ExactMatching.Proofs.PitBounds
-import ExactMatching.Proofs.PitMain
-import ExactMatching.Proofs.MatchingReductions
-import ExactMatching.Proofs.PfaffianIdentity
-import ExactMatching.Proofs.WireExpansion
+module
+
+public import ExactMatching.Defs.CitedHypotheses
+public import ExactMatching.Defs.PfaffianMatching
+public import ExactMatching.Defs.PitAlgorithm
+public import ExactMatching.Proofs.PitBounds
+public import ExactMatching.Proofs.PitMain
+public import ExactMatching.Proofs.MatchingReductions
+public import ExactMatching.Proofs.PfaffianIdentity
+public import ExactMatching.Proofs.WireExpansion
+
+@[expose] public section
 
 /-!
 # Proofs of Proposition 3.1 (combined circuit core) and Theorem 2(a)–(c) decision-witness cores

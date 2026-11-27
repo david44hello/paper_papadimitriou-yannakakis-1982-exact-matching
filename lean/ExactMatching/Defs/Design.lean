@@ -1,11 +1,15 @@
 /-
 Copyright (C) Dave Goel 2026--now. Licensed under the Apache License 2.0; see LICENSE.
 -/
-import Mathlib.Algebra.MvPolynomial.Eval
-import Mathlib.Analysis.SpecialFunctions.Log.Base
-import Mathlib.Data.Finset.Sort
-import Mathlib.Data.Nat.Log
-import Mathlib.FieldTheory.Finite.GaloisField
+module
+
+public import Mathlib.Algebra.MvPolynomial.Eval
+public import Mathlib.Analysis.SpecialFunctions.Log.Base
+public import Mathlib.Data.Finset.Sort
+public import Mathlib.Data.Nat.Log
+public import Mathlib.FieldTheory.Finite.GaloisField
+
+@[expose] public section
 
 /-!
 # Explicit polynomial-graph design (Lemma 2.1) and Nisan–Wigderson polynomial map
@@ -35,16 +39,16 @@ def designL (m : ℕ) : ℕ := m * designQ m
 /-- Polynomial degree bound `t = ⌈log₂ n / log₂ q⌉ = Nat.clog q n`. -/
 def designT (m n : ℕ) : ℕ := Nat.clog (designQ m) n
 
-private theorem designR_ne_zero_of_two_le {m : ℕ} (hm : 2 ≤ m) : designR m ≠ 0 :=
-  Nat.ne_of_gt (Nat.clog_pos (by decide) (by omega))
+theorem designR_ne_zero_of_two_le {m : ℕ} (hm : 2 ≤ m) : designR m ≠ 0 :=
+  Nat.ne_of_gt (Nat.clog_pos (Nat.lt_succ_self 1) hm)
 
-private theorem le_designQ (m : ℕ) : m ≤ designQ m :=
+theorem le_designQ (m : ℕ) : m ≤ designQ m :=
   (Nat.clog_le_iff_le_pow (by decide : 1 < 2)).mp le_rfl
 
-private theorem designQ_gt_one_of_two_le {m : ℕ} (hm : 2 ≤ m) : 1 < designQ m :=
-  lt_of_lt_of_le (by omega) (le_designQ m)
+theorem designQ_gt_one_of_two_le {m : ℕ} (hm : 2 ≤ m) : 1 < designQ m :=
+  lt_of_lt_of_le (show 1 < m from hm) (le_designQ m)
 
-private theorem n_le_designQ_pow_designT {m n : ℕ} (hm : 2 ≤ m) :
+theorem n_le_designQ_pow_designT {m n : ℕ} (hm : 2 ≤ m) :
     n ≤ designQ m ^ designT m n :=
   (Nat.clog_le_iff_le_pow (designQ_gt_one_of_two_le hm)).mp le_rfl
 

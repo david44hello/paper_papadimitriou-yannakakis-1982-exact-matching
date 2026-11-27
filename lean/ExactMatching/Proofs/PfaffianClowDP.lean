@@ -1,8 +1,12 @@
 /-
 Copyright (C) Dave Goel 2026--now. Licensed under the Apache License 2.0; see LICENSE.
 -/
-import ExactMatching.Defs.PfaffianMatching
-import ExactMatching.Proofs.PfaffianClowAlgebra
+module
+
+public import ExactMatching.Defs.PfaffianMatching
+public import ExactMatching.Proofs.PfaffianClowAlgebra
+
+@[expose] public section
 
 /-!
 # Unconditional Mahajan–Subramanya–Vinay (`[MSV04]`) Pfaffian Arithmetic Circuit
@@ -201,7 +205,7 @@ private lemma closeSlot_lt_layerBase_next (k t c : ℕ) (hk : 1 ≤ k) (hc : c <
   have h1 : c * (4 * k) + (2 * k + (2 * k - 1)) < k * (4 * k) := by nlinarith
   nlinarith
 
-private lemma dpGateFn_wf (k : ℕ) (hk : 1 ≤ k) (idx : ℕ) (hidx : idx < totalDpSize k) :
+lemma dpGateFn_wf (k : ℕ) (hk : 1 ≤ k) (idx : ℕ) (hidx : idx < totalDpSize k) :
     (dpGateFn k hk idx).WF idx := by
   unfold dpGateFn
   have hLs : 0 < layerSize k := layerSize_pos k hk

@@ -1,16 +1,20 @@
 /-
 Copyright (C) Dave Goel 2026--now. Licensed under the Apache License 2.0; see LICENSE.
 -/
-import ExactMatching.Defs.Circuits
-import ExactMatching.Defs.CitedHypotheses
-import ExactMatching.Proofs.CircuitsTransfer
-import ExactMatching.Proofs.StrassenHomog
-import Mathlib.Algebra.MvPolynomial.Equiv
-import Mathlib.Algebra.MvPolynomial.NoZeroDivisors
-import Mathlib.Algebra.Polynomial.Div
-import Mathlib.Algebra.Polynomial.HasseDeriv
-import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
-import Mathlib.LinearAlgebra.Vandermonde
+module
+
+public import ExactMatching.Defs.Circuits
+public import ExactMatching.Defs.CitedHypotheses
+public import ExactMatching.Proofs.CircuitsTransfer
+public import ExactMatching.Proofs.StrassenHomog
+public import Mathlib.Algebra.MvPolynomial.Equiv
+public import Mathlib.Algebra.MvPolynomial.NoZeroDivisors
+public import Mathlib.Algebra.Polynomial.Div
+public import Mathlib.Algebra.Polynomial.HasseDeriv
+public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
+public import Mathlib.LinearAlgebra.Vandermonde
+
+@[expose] public section
 
 /-!
 # Unconditional Proof of `KI04_Cor_7_4` via Coupled Division-Free Newton Iteration
@@ -304,7 +308,7 @@ lemma shiftVarsCircuit_evalPoly {n : ℕ} (C : RatCircuit n) (a : Fin n → ℚ)
   shiftVarsCircuit_evalGatePoly C a C.out
 
 /-- Shift a `RatGate`'s internal wire indices by `offset`. -/
-private def shiftGate {n : ℕ} (offset : ℕ) : RatGate n → RatGate n
+def shiftGate {n : ℕ} (offset : ℕ) : RatGate n → RatGate n
   | .var v => .var v
   | .const a => .const a
   | .add i j => .add (offset + i) (offset + j)
@@ -504,7 +508,7 @@ lemma linCombCircuit_evalPoly {n : ℕ} (N : ℕ) (hN : 1 ≤ N) (B : ℕ) (hB :
 
 /-- Convert a gate in `RatGate (m + 1)` into a gate in `RatGate m` shifted by `offset`, replacing
 `.var (Fin.last m)` by a 1-gate reference `.smul 1 ySlot`. -/
-private def substLastGate {m : ℕ} (offset ySlot : ℕ) : RatGate (m + 1) → RatGate m
+def substLastGate {m : ℕ} (offset ySlot : ℕ) : RatGate (m + 1) → RatGate m
   | .var v =>
       if hv : v.val < m then .var ⟨v.val, hv⟩
       else .smul 1 ySlot
@@ -543,12 +547,12 @@ noncomputable def newtonIter {m : ℕ} (H H' : MvPolynomial (Fin (m + 1)) ℚ) (
   | 0 => (MvPolynomial.C y0, MvPolynomial.C u0)
   | k + 1 => newtonStep H H' (newtonIter H H' y0 u0 k)
 
-private def newtonBlockSize (S : ℕ) : ℕ := 2 * S + 5
-private def newtonBase (S k : ℕ) : ℕ := 3 + k * newtonBlockSize S
-private def newtonYSlot (S : ℕ) : ℕ → ℕ
+def newtonBlockSize (S : ℕ) : ℕ := 2 * S + 5
+def newtonBase (S k : ℕ) : ℕ := 3 + k * newtonBlockSize S
+def newtonYSlot (S : ℕ) : ℕ → ℕ
   | 0 => 0
   | k + 1 => newtonBase S k + S + 1
-private def newtonUSlot (S : ℕ) : ℕ → ℕ
+def newtonUSlot (S : ℕ) : ℕ → ℕ
   | 0 => 1
   | k + 1 => newtonBase S k + 2 * S + 4
 
@@ -558,7 +562,7 @@ private lemma newtonYSlot_lt_base (S k : ℕ) : newtonYSlot S k < newtonBase S k
 private lemma newtonUSlot_lt_base (S k : ℕ) : newtonUSlot S k < newtonBase S k := by
   cases k <;> unfold newtonUSlot newtonBase newtonBlockSize <;> nlinarith
 
-private def newtonGateFn {m : ℕ} (C_h C_hy : RatCircuit (m + 1)) (y0 u0 : ℚ) (S : ℕ) (idx : ℕ) :
+def newtonGateFn {m : ℕ} (C_h C_hy : RatCircuit (m + 1)) (y0 u0 : ℚ) (S : ℕ) (idx : ℕ) :
     RatGate m :=
   if idx = 0 then .const y0
   else if idx = 1 then .const u0

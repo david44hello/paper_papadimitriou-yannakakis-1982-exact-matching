@@ -1,12 +1,16 @@
 /-
 Copyright (C) Dave Goel 2026--now. Licensed under the Apache License 2.0; see LICENSE.
 -/
-import ExactMatching.Defs.CitedHypotheses
-import ExactMatching.Defs.Design
-import ExactMatching.Proofs.Design
-import ExactMatching.Proofs.CircuitsTransfer
-import ExactMatching.Proofs.PitBounds
-import Mathlib.Algebra.MvPolynomial.Monad
+module
+
+public import ExactMatching.Defs.CitedHypotheses
+public import ExactMatching.Defs.Design
+public import ExactMatching.Proofs.Design
+public import ExactMatching.Proofs.CircuitsTransfer
+public import ExactMatching.Proofs.PitBounds
+public import Mathlib.Algebra.MvPolynomial.Monad
+
+@[expose] public section
 
 /-!
 # Proof of Lemma 2.2 (Reconstruction from NW-design vanishing via `KI04_Cor_7_4`)

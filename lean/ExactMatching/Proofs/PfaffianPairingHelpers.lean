@@ -1,9 +1,13 @@
 /-
 Copyright (C) Dave Goel 2026--now. Licensed under the Apache License 2.0; see LICENSE.
 -/
-import ExactMatching.Defs.PfaffianMatching
-import Mathlib.Data.Finset.Sort
-import Mathlib.Data.Fintype.BigOperators
+module
+
+public import ExactMatching.Defs.PfaffianMatching
+public import Mathlib.Data.Finset.Sort
+public import Mathlib.Data.Fintype.BigOperators
+
+@[expose] public section
 
 /-!
 # Ordered pairing helpers for the Pfaffian clow-sequence proof

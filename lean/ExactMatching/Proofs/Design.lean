@@ -1,10 +1,14 @@
 /-
 Copyright (C) Dave Goel 2026--now. Licensed under the Apache License 2.0; see LICENSE.
 -/
-import ExactMatching.Defs.Design
-import Mathlib.FieldTheory.IntermediateField.Adjoin.Basic
-import Mathlib.FieldTheory.Minpoly.Field
-import Mathlib.RingTheory.Polynomial.Basic
+module
+
+public import ExactMatching.Defs.Design
+public import Mathlib.FieldTheory.IntermediateField.Adjoin.Basic
+public import Mathlib.FieldTheory.Minpoly.Field
+public import Mathlib.RingTheory.Polynomial.Basic
+
+@[expose] public section
 
 /-!
 # Proofs for Lemma 2.1 (Explicit polynomial-graph design)

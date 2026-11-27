@@ -1,9 +1,13 @@
 /-
 Copyright (C) Dave Goel 2026--now. Licensed under the Apache License 2.0; see LICENSE.
 -/
-import ExactMatching.Defs.PfaffianMatching
-import ExactMatching.Proofs.PfaffianIdentity
-import ExactMatching.Proofs.PitBounds
+module
+
+public import ExactMatching.Defs.PfaffianMatching
+public import ExactMatching.Proofs.PfaffianIdentity
+public import ExactMatching.Proofs.PitBounds
+
+@[expose] public section
 
 /-!
 # Proof of Proposition 3.1 (Group-ring wire-expansion theorem)

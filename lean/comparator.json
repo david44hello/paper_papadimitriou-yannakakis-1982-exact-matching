@@ -1,0 +1,18 @@
+{
+  "challenge_module": "RegistryChallenge",
+  "solution_module": "RegistrySolution",
+  "theorem_names": [
+    "ExactMatching.Paper.thm_1_test_correct",
+    "ExactMatching.Paper.thm_1_eval_points",
+    "ExactMatching.Paper.thm_2a_decision_witness",
+    "ExactMatching.Paper.thm_2b_decision_witness",
+    "ExactMatching.Paper.thm_2c_decision_witness"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}

@@ -1,12 +1,16 @@
 /-
 Copyright (C) Dave Goel 2026--now. Licensed under the Apache License 2.0; see LICENSE.
 -/
-import ExactMatching.Defs.CitedHypotheses
-import ExactMatching.Defs.PitAlgorithm
-import ExactMatching.Proofs.CircuitsTransfer
-import ExactMatching.Proofs.PitBounds
-import ExactMatching.Proofs.PitMain
-import Mathlib.Analysis.Complex.ExponentialBounds
+module
+
+public import ExactMatching.Defs.CitedHypotheses
+public import ExactMatching.Defs.PitAlgorithm
+public import ExactMatching.Proofs.CircuitsTransfer
+public import ExactMatching.Proofs.PitBounds
+public import ExactMatching.Proofs.PitMain
+public import Mathlib.Analysis.Complex.ExponentialBounds
+
+@[expose] public section
 
 /-!
 # Proof of Remark 1 (`[O26]` stronger permanent lower bound tradeoff)

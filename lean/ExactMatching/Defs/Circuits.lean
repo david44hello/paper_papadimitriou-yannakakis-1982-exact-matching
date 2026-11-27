@@ -1,15 +1,19 @@
 /-
 Copyright (C) Dave Goel 2026--now. Licensed under the Apache License 2.0; see LICENSE.
 -/
-import Mathlib.Algebra.MvPolynomial.Basic
-import Mathlib.Algebra.MvPolynomial.Degrees
-import Mathlib.Algebra.MvPolynomial.Eval
-import Mathlib.Analysis.SpecialFunctions.Log.Base
-import Mathlib.Analysis.SpecialFunctions.Pow.Real
-import Mathlib.Data.Nat.Log
-import Mathlib.Data.Rat.Defs
-import Mathlib.GroupTheory.Perm.Cycle.Basic
-import Mathlib.LinearAlgebra.Matrix.Permanent
+module
+
+public import Mathlib.Algebra.MvPolynomial.Basic
+public import Mathlib.Algebra.MvPolynomial.Degrees
+public import Mathlib.Algebra.MvPolynomial.Eval
+public import Mathlib.Analysis.SpecialFunctions.Log.Base
+public import Mathlib.Analysis.SpecialFunctions.Pow.Real
+public import Mathlib.Data.Nat.Log
+public import Mathlib.Data.Rat.Defs
+public import Mathlib.GroupTheory.Perm.Cycle.Basic
+public import Mathlib.LinearAlgebra.Matrix.Permanent
+
+@[expose] public section
 
 /-!
 # Arithmetic circuits over `ℚ` and `ℤ`, permanent polynomials, and Hypothesis `H(c)`

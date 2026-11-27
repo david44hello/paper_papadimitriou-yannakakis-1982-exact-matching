@@ -1,8 +1,12 @@
 /-
 Copyright (C) Dave Goel 2026--now. Licensed under the Apache License 2.0; see LICENSE.
 -/
-import ExactMatching.Defs.Circuits
-import Mathlib.Algebra.MvPolynomial.Monad
+module
+
+public import ExactMatching.Defs.Circuits
+public import Mathlib.Algebra.MvPolynomial.Monad
+
+@[expose] public section
 
 /-!
 # Explicit cited hypotheses (NO `axiom` declarations)

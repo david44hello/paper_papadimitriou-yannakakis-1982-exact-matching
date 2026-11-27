@@ -1,11 +1,15 @@
 /-
 Copyright (C) Dave Goel 2026--now. Licensed under the Apache License 2.0; see LICENSE.
 -/
-import ExactMatching.Defs.Circuits
-import ExactMatching.Defs.Design
-import ExactMatching.Defs.PitAlgorithm
-import ExactMatching.Defs.PfaffianMatching
-import ExactMatching.Defs.CitedHypotheses
+module
+
+public import ExactMatching.Defs.Circuits
+public import ExactMatching.Defs.Design
+public import ExactMatching.Defs.PitAlgorithm
+public import ExactMatching.Defs.PfaffianMatching
+public import ExactMatching.Defs.CitedHypotheses
+
+@[expose] public section
 
 /-!
 # Formal statements of all formalized claims of the paper
@@ -227,7 +231,7 @@ theorem prop_3_1_pfaffian_identity {k : ℕ} (hk : 1 ≤ k)
 
 /-- Proposition 3.1 (cyclic factor rank bound): `r ≤ max(1, log₂ |Γ|)`. -/
 theorem prop_3_1_cyclic_rank_bound (r : ℕ) (q : Fin r → ℕ)
-    (hq : (∀ i, 2 ≤ q i) ∨ (∃ hr : r = 1, q ⟨0, by omega⟩ = 1)) :
+    (hq : (∀ i, 2 ≤ q i) ∨ (∃ hr : r = 1, q ⟨0, hr ▸ Nat.zero_lt_one⟩ = 1)) :
     (r : ℝ) ≤ max (1 : ℝ) (Real.logb 2 ((∏ i : Fin r, q i : ℕ) : ℝ)) := by
   sorry
 

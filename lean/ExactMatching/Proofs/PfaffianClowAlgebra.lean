@@ -1,14 +1,18 @@
 /-
 Copyright (C) Dave Goel 2026--now. Licensed under the Apache License 2.0; see LICENSE.
 -/
-import ExactMatching.Defs.PfaffianMatching
-import ExactMatching.Proofs.PfaffianPairingHelpers
-import Mathlib.Data.List.Basic
-import Mathlib.Data.List.Nodup
-import Mathlib.Data.List.Pairwise
-import Mathlib.Data.List.Perm.Basic
-import Mathlib.GroupTheory.Perm.Cycle.Basic
-import Mathlib.GroupTheory.Perm.Sign
+module
+
+public import ExactMatching.Defs.PfaffianMatching
+public import ExactMatching.Proofs.PfaffianPairingHelpers
+public import Mathlib.Data.List.Basic
+public import Mathlib.Data.List.Nodup
+public import Mathlib.Data.List.Pairwise
+public import Mathlib.Data.List.Perm.Basic
+public import Mathlib.GroupTheory.Perm.Cycle.Basic
+public import Mathlib.GroupTheory.Perm.Sign
+
+@[expose] public section
 
 /-!
 # Unconditional Mahajan–Subramanya–Vinay (`[MSV04]`) Pfaffian Clow-Sequence Algebra

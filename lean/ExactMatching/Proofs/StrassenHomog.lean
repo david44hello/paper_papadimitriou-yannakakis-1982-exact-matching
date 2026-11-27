@@ -1,8 +1,12 @@
 /-
 Copyright (C) Dave Goel 2026--now. Licensed under the Apache License 2.0; see LICENSE.
 -/
-import ExactMatching.Defs.Circuits
-import Mathlib.RingTheory.MvPolynomial.Homogeneous
+module
+
+public import ExactMatching.Defs.Circuits
+public import Mathlib.RingTheory.MvPolynomial.Homogeneous
+
+@[expose] public section
 
 /-!
 # Strassen (1973) homogenization and degree-`≤ d` truncation for `RatCircuit`

@@ -1,10 +1,14 @@
 /-
 Copyright (C) Dave Goel 2026--now. Licensed under the Apache License 2.0; see LICENSE.
 -/
-import ExactMatching.Defs.Circuits
-import ExactMatching.Defs.Design
-import Mathlib.Data.ZMod.Basic
-import Mathlib.LinearAlgebra.Matrix.Permanent
+module
+
+public import ExactMatching.Defs.Circuits
+public import ExactMatching.Defs.Design
+public import Mathlib.Data.ZMod.Basic
+public import Mathlib.LinearAlgebra.Matrix.Permanent
+
+@[expose] public section
 
 /-!
 # Explicit quantitative PIT parameters, Ryser's formula, and hitting-set tests (Theorem 1 & Remark 1)

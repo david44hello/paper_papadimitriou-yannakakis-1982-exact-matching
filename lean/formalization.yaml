@@ -1,0 +1,94 @@
+version: v0.4
+project:
+  name: Exact Matching (Papadimitriou–Yannakakis, 1982) in Deterministic Time 2^(n^o(1)) from Permanent
+    Lower Bounds
+  description: Under the paper's stated permanent lower-bound hypothesis H(c), Lean 4 verifies test correctness
+    and the evaluation-point count for quantitative low-degree integer polynomial identity testing (Theorem
+    1), together with the group-ring Pfaffian decision and witness-recovery reductions for Exact Matching
+    (Papadimitriou–Yannakakis, 1982), polynomially bounded integer-weight perfect matching, and polynomial-order
+    finite abelian-group perfect matching (Theorem 2(a)–(c)), proved from Lean's three standard axioms
+    alone with no cited inputs. Deterministic Turing-machine running-time bounds and randomized/parallel
+    complexity remarks are outside verification.
+  authors:
+  - Dave Goel
+  license: Apache-2.0
+  responsible_maintainers:
+  - Dave Goel
+classification:
+  arxiv:
+  - cs.CC
+  - math.CO
+  - cs.DS
+  msc2020:
+  - 68Q15
+  - 68W20
+  - 05C70
+  - 68Q25
+sources:
+- title: Exact Matching (Papadimitriou–Yannakakis, 1982) in Deterministic Time 2^(n^o(1)) from Permanent
+    Lower Bounds
+  authors:
+  - Dave Goel
+  id: 10.5281/zenodo.24587196
+  type: paper
+  location: https://doi.org/10.5281/zenodo.24587196
+  relationship: formalizes
+status:
+  scope: The five statements formalize the test and count in Theorem 1 and the decision and witness conclusions
+    of Theorem 2(a)–(c). Four statements take the paper’s permanent lower bound H(c) as an explicit hypothesis,
+    for c > 0 and a specified size threshold. The separate evaluation-count bound needs only its parameter
+    conditions. The full paper project compares 35 declarations. Two declarations in Corollary 1 assume
+    Theorem 1.1 of the November 2026 preprint by Claude (Anthropic). Remark 1 assumes Theorem 1.1 of the
+    November 2026 preprint by OpenAI. Both preprints are unrefereed. The registry selects Theorems 1 and
+    2(a)–(c).
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Quot.sound
+  - Classical.choice
+automation:
+  methods:
+  - method: agent
+    tool_setup: AI agents wrote and checked the Lean proofs under the author’s direction.
+fidelity:
+  divergences: The three matching statements treat graphs with an even number of vertices, 2k with k ≥
+    1. The full paper project separately proves that odd-order graphs have no perfect matching. The evaluation-count
+    bounds are formalized. Eight deterministic Turing-machine running-time clauses and the randomized
+    and parallel complexity remark in Table 1 (RNC, RP, coRP) are outside the formal verification.
+review:
+  status: agent-reviewed
+  reviewers:
+  - Google Gemini
+  notes: The published v2.00 proof passed a clean build, axiom audit, kernel replay and standard and paranoid
+    comparison of all 35 declarations. An independent Google Gemini check matched the five selected statements,
+    their definitions and hypotheses to the paper. The registry package compiled in development, and the
+    66 named Challenge and Solution declaration interfaces matched.
+alignment:
+  namespace: ExactMatching.Paper
+  statements:
+  - source: Theorem 1, correctness
+    lean: ExactMatching.Paper.thm_1_test_correct
+    module: RegistryChallenge
+    status: proved
+    note: Correctness of the small and large tests under H(c).
+  - source: Theorem 1, evaluation count
+    lean: ExactMatching.Paper.thm_1_eval_points
+    module: RegistryChallenge
+    status: proved
+    note: Evaluation-count bound for the specified parameters, without H(c).
+  - source: Theorem 2(a)
+    lean: ExactMatching.Paper.thm_2a_decision_witness
+    module: RegistryChallenge
+    status: proved
+    note: Decision and witness recovery for a prescribed red-edge count under H(c).
+  - source: Theorem 2(b)
+    lean: ExactMatching.Paper.thm_2b_decision_witness
+    module: RegistryChallenge
+    status: proved
+    note: Decision and witness recovery for a prescribed bounded integer-weight sum under H(c).
+  - source: Theorem 2(c)
+    lean: ExactMatching.Paper.thm_2c_decision_witness
+    module: RegistryChallenge
+    status: proved
+    note: Decision and witness recovery for a prescribed sum in any finite abelian group under H(c).

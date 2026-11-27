@@ -1,12 +1,16 @@
 /-
 Copyright (C) Dave Goel 2026--now. Licensed under the Apache License 2.0; see LICENSE.
 -/
-import ExactMatching.Defs.PfaffianMatching
-import ExactMatching.Proofs.MatchingReductions
-import ExactMatching.Proofs.PitBounds
-import Mathlib.Algebra.Polynomial.Eval.Defs
-import Mathlib.Algebra.Polynomial.Roots
-import Mathlib.Data.Nat.Choose.Bounds
+module
+
+public import ExactMatching.Defs.PfaffianMatching
+public import ExactMatching.Proofs.MatchingReductions
+public import ExactMatching.Proofs.PitBounds
+public import Mathlib.Algebra.Polynomial.Eval.Defs
+public import Mathlib.Algebra.Polynomial.Roots
+public import Mathlib.Data.Nat.Choose.Bounds
+
+@[expose] public section
 
 /-!
 # Proofs for Proposition 3.1 (Cyclic rank bound & Group-ring Pfaffian identity) and Remark 2
