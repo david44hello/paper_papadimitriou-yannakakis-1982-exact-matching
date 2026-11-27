@@ -1,5 +1,7 @@
 # Exact Matching in deterministic time $2^{n^{o(1)}}$ from permanent lower bounds
 
+The paper: https://doi.org/10.5281/zenodo.24587196
+
 ## What is in this repository?
 
 - The [Lean directory](lean/) contains the formal statements, Lean 4 proofs, claim audit, and verification scripts for all mathematical ingredients of Theorem 1, Theorem 2(a)–(c), Corollary 1, Remark 1, Lemma 2.1, Lemma 2.2 (including an unconditional division-free Newton-iteration and Strassen-homogenization proof of root-finding circuit existence), Proposition 3.1 (including an unconditional division-free alternating-clow-sequence Pfaffian circuit construction), and Remark 2.
