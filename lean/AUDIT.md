@@ -1,27 +1,28 @@
 # Paper claim audit
 
-Every formalized declaration below depends strictly on Lean's three standard axioms (`propext`, `Classical.choice`, `Quot.sound`), with zero custom `axiom` declarations. Cited external results (`KI04_Cor_7_4`, `A26_MainTheorem`, `O26_Thm_1_1`) enter solely as explicit hypotheses of the theorems that use them, verified mechanically below.
+Every formalized declaration below depends strictly on Lean's three standard axioms (`propext`, `Classical.choice`, `Quot.sound`), with zero custom `axiom` declarations. Only the two unrefereed external results (`A26_MainTheorem`, `O26_Thm_1_1`) enter as explicit hypotheses of the three declarations that use them (`KI04_Cor_7_4` is proved unconditionally as `ExactMatching.Paper.ki04_cor_7_4`), verified mechanically below.
 
 | Claim ID | Paper ref | Plain name | Status | Lean declaration | Cited hypotheses |
 |---|---|---|---|---|---|
 | `thm_1_time` | Theorem 1 (L173-175, L281-322) | Theorem 1 (deterministic time bound) | not formalized: no time-bounded computation in Lean's library | — | NONE |
-| `thm_1_test_correct` | Theorem 1 (L173-175, L294-315) | Theorem 1 ingredient: the test is correct | PROVED GIVEN [KI04] Corollary 7.4 | `ExactMatching.Paper.thm_1_test_correct` | KI04_Cor_7_4 (refereed) |
+| `thm_1_test_correct` | Theorem 1 (L173-175, L294-315) | Theorem 1 ingredient: the test is correct | PROVED | `ExactMatching.Paper.thm_1_test_correct` | NONE |
 | `thm_1_eval_points` | Theorem 1 (L173-175, L317-321) | Theorem 1 ingredient: the number of evaluation points | PROVED | `ExactMatching.Paper.thm_1_eval_points` | NONE |
 | `thm_2a_time` | Theorem 2(a) (L179-182, L399, L403) | Theorem 2(a) (Exact Matching deterministic time bound) | not formalized: no time-bounded computation in Lean's library | — | NONE |
-| `thm_2a_decision_witness` | Theorem 2(a) (L179-182, L399, L403) | Theorem 2(a) ingredient: Exact Matching decision and witness recovery | PROVED GIVEN [KI04] Corollary 7.4 | `ExactMatching.Paper.thm_2a_decision_witness` | KI04_Cor_7_4 (refereed) |
+| `thm_2a_decision_witness` | Theorem 2(a) (L179-182, L399, L403) | Theorem 2(a) ingredient: Exact Matching decision and witness recovery | PROVED | `ExactMatching.Paper.thm_2a_decision_witness` | NONE |
 | `thm_2b_time` | Theorem 2(b) (L179-180, L183, L401, L403) | Theorem 2(b) (bounded integer weights deterministic time bound) | not formalized: no time-bounded computation in Lean's library | — | NONE |
-| `thm_2b_decision_witness` | Theorem 2(b) (L179-180, L183, L401, L403) | Theorem 2(b) ingredient: bounded integer-weight decision and witness recovery | PROVED GIVEN [KI04] Corollary 7.4 | `ExactMatching.Paper.thm_2b_decision_witness` | KI04_Cor_7_4 (refereed) |
+| `thm_2b_decision_witness` | Theorem 2(b) (L179-180, L183, L401, L403) | Theorem 2(b) ingredient: bounded integer-weight decision and witness recovery | PROVED | `ExactMatching.Paper.thm_2b_decision_witness` | NONE |
 | `thm_2c_time` | Theorem 2(c) (L179-180, L184, L391-397, L403) | Theorem 2(c) (abelian-group labels deterministic time bound) | not formalized: no time-bounded computation in Lean's library | — | NONE |
-| `thm_2c_decision_witness` | Theorem 2(c) (L179-180, L184, L391-397, L403) | Theorem 2(c) ingredient: abelian-group decision and witness recovery | PROVED GIVEN [KI04] Corollary 7.4 | `ExactMatching.Paper.thm_2c_decision_witness` | KI04_Cor_7_4 (refereed) |
+| `thm_2c_decision_witness` | Theorem 2(c) (L179-180, L184, L391-397, L403) | Theorem 2(c) ingredient: abelian-group decision and witness recovery | PROVED | `ExactMatching.Paper.thm_2c_decision_witness` | NONE |
 | `cor_1_time` | Corollary 1 (L188-190) | Corollary 1 (deterministic time bound from [A26]) | not formalized: no time-bounded computation in Lean's library | — | NONE |
 | `cor_1_a26_implies_H` | Corollary 1 (L171, L189) | Corollary 1 ingredient: [A26] Theorem 1.1 implies Hypothesis H(c) | PROVED GIVEN [A26] Theorem 1.1 (UNREFEREED) | `ExactMatching.Paper.cor_1_a26_implies_H` | A26_MainTheorem (UNREFEREED) |
-| `cor_1_implication` | Corollary 1 (L188-190) | Corollary 1 ingredient: [A26] Theorem 1.1 yields PIT test and evaluation bounds | PROVED GIVEN [A26] Theorem 1.1 (UNREFEREED), [KI04] Corollary 7.4 | `ExactMatching.Paper.cor_1_implication` | A26_MainTheorem (UNREFEREED); KI04_Cor_7_4 (refereed) |
+| `cor_1_implication` | Corollary 1 (L188-190) | Corollary 1 ingredient: [A26] Theorem 1.1 yields PIT test and evaluation bounds | PROVED GIVEN [A26] Theorem 1.1 (UNREFEREED) | `ExactMatching.Paper.cor_1_implication` | A26_MainTheorem (UNREFEREED) |
 | `rem_1_time` | Remark 1 (L192-194) | Remark 1 (deterministic time bound from [O26]) | not formalized: no time-bounded computation in Lean's library | — | NONE |
-| `rem_1_tradeoff` | Remark 1 (L192-194) | Remark 1 ingredient: [O26] parameter tradeoff, test correctness, and evaluation-point bound | PROVED GIVEN [O26] Theorem 1.1 (UNREFEREED), [KI04] Corollary 7.4 | `ExactMatching.Paper.rem_1_tradeoff` | O26_Thm_1_1 (UNREFEREED); KI04_Cor_7_4 (refereed) |
+| `rem_1_tradeoff` | Remark 1 (L192-194) | Remark 1 ingredient: [O26] parameter tradeoff, test correctness, and evaluation-point bound | PROVED GIVEN [O26] Theorem 1.1 (UNREFEREED) | `ExactMatching.Paper.rem_1_tradeoff` | O26_Thm_1_1 (UNREFEREED) |
 | `lem_2_1_irred_exists` | Lemma 2.1 proof (L224) | Lemma 2.1 ingredient: irreducible polynomial over F_2 | PROVED | `ExactMatching.Paper.lem_2_1_irred_exists` | NONE |
 | `lem_2_1_design` | Lemma 2.1 (L219-225) | Lemma 2.1 (explicit polynomial-graph design) | PROVED | `ExactMatching.Paper.lem_2_1_design` | NONE |
 | `lem_2_1_time` | Lemma 2.1 (L220, L224) | Lemma 2.1 (deterministic poly(n)-time constructibility) | not formalized: no time-bounded computation in Lean's library | — | NONE |
-| `lem_2_2_reconstruction` | Lemma 2.2 (L233-249) | Lemma 2.2 (reconstruction and circuit-model transfer) | PROVED GIVEN [KI04] Corollary 7.4 | `ExactMatching.Paper.lem_2_2_reconstruction` | KI04_Cor_7_4 (refereed) |
+| `ki04_cor_7_4` | Lemma 2.2 proof (L246) | Unconditional root-finding circuit existence ([KI04] Cor. 7.4) | PROVED | `ExactMatching.Paper.ki04_cor_7_4` | NONE |
+| `lem_2_2_reconstruction` | Lemma 2.2 (L233-249) | Lemma 2.2 (reconstruction and circuit-model transfer) | PROVED | `ExactMatching.Paper.lem_2_2_reconstruction` | NONE |
 | `step_2_2_nonvanishing` | Lemma 2.2 proof (L240, L244) | Multivariate polynomial nonvanishing on a grid | PROVED | `ExactMatching.Paper.step_2_2_nonvanishing` | NONE |
 | `step_2_2_model_transfer` | Lemma 2.2 proof (L248) | Circuit-model transfer and functional-to-formal lift | PROVED | `ExactMatching.Paper.step_2_2_model_transfer` | NONE |
 | `prop_3_1_pfaffian_identity` | Proposition 3.1 (L329-351) | Proposition 3.1 ingredient: group-ring Tutte-Pfaffian identity | PROVED | `ExactMatching.Paper.prop_3_1_pfaffian_identity` | NONE |

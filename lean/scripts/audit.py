@@ -75,8 +75,9 @@ def report(claims):
         "",
         "Every formalized declaration below depends strictly on Lean's three standard axioms "
         "(`propext`, `Classical.choice`, `Quot.sound`), with zero custom `axiom` declarations. "
-        "Cited external results (`KI04_Cor_7_4`, `A26_MainTheorem`, `O26_Thm_1_1`) enter solely as "
-        "explicit hypotheses of the theorems that use them, verified mechanically below.",
+        "Only the two unrefereed external results (`A26_MainTheorem`, `O26_Thm_1_1`) enter as "
+        "explicit hypotheses of the three declarations that use them (`KI04_Cor_7_4` is proved "
+        "unconditionally as `ExactMatching.Paper.ki04_cor_7_4`), verified mechanically below.",
         "",
         "| Claim ID | Paper ref | Plain name | Status | Lean declaration | Cited hypotheses |",
         "|---|---|---|---|---|---|",

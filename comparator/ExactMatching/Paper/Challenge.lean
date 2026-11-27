@@ -70,13 +70,18 @@ theorem step_2_2_model_transfer {m : ℕ} (C : RatCircuit m) :
       C.evalPoly = q := by
   sorry
 
-/-- Lemma 2.2 (full statement): given `KI04_Cor_7_4`, there exists an absolute constant `κ ≥ 1`
+/-- Unconditional proof of `[KI04]` Corollary 7.4 (root-finding circuit existence over `ℚ`) via
+coupled division-free quadratic Newton iteration and Strassen homogenization. -/
+theorem ki04_cor_7_4 : KI04_Cor_7_4 := by
+  sorry
+
+/-- Lemma 2.2 (full statement): unconditionally, there exists an absolute constant `κ ≥ 1`
 such that if `f ∈ ℤ[y_1,...,y_n]` (nonzero, degree `d_f`, computable by an `IntCircuit` of
 encoding length `≤ s`) and multilinear `p ∈ ℤ[x_1,...,x_m]` (nonzero, degree `d_p`, `n ≥ 2`,
 `log₂ n < m ≤ n`, `max(m, n, d_f, d_p, s, b) ≤ s`, `s ≥ 2`) satisfy `f(NW^p(a)) = 0` on
 `S^l` with `|S| > d_f * d_p` for the explicit sets `designSets m n _`, then `p` is computable
 in the `[A26]` `ℚ`-circuit model (`Computes`) with at most `s ^ κ` gates. -/
-theorem lem_2_2_reconstruction (hKI : KI04_Cor_7_4) :
+theorem lem_2_2_reconstruction :
     ∃ κ : ℕ, 1 ≤ κ ∧
       ∀ (s m n d_f d_p b : ℕ) (hs : 2 ≤ s) (hn : 2 ≤ n)
         (hm_gt : Real.logb 2 n < (m : ℝ)) (hmn : m ≤ n)
@@ -163,14 +168,14 @@ theorem thm_1_eval_points (A μ₀ s₀ d : ℕ) (hA : 1 ≤ A) (hμ₀ : 1 ≤ 
 
 /-- Theorem 1 ingredient: the test is correct (and its evaluation-point count satisfies the
 `exp₂(exp₂(K (log₂ s)^(3/4)))` bound).
-Under `HypothesisH c μ₀` and `KI04_Cor_7_4`, there exist fixed integer constants `A ≥ 1`, `s₀ ≥ 4`,
+Under `HypothesisH c μ₀`, there exist fixed integer constants `A ≥ 1`, `s₀ ≥ 4`,
 and `K > 0` (depending only on `c, μ₀` and the universal constant of `KI04_Cor_7_4`) such that
 for every `s ≥ 2` and every `C : IntCircuit s` of encoding length `≤ s`, degree `≤ s`, and
 coefficient bit-length `≤ s`:
 - if `s < s₀`, `pitSmallTest s C ↔ C.evalPoly = 0`;
 - if `s ≥ s₀`, `pitLargeTest A μ₀ s _ _ C ↔ C.evalPoly = 0`;
 - and `pitEvalPointCount A μ₀ s₀ s * 2^{pitMu A μ₀ s} * s^4 ≤ exp₂(exp₂(K (log₂ s)^(3/4)))`. -/
-theorem thm_1_test_correct (hKI : KI04_Cor_7_4) (c : ℝ) (μ₀ : ℕ) (hH : HypothesisH c μ₀) :
+theorem thm_1_test_correct (c : ℝ) (μ₀ : ℕ) (hH : HypothesisH c μ₀) :
     ∃ (A s₀ : ℕ) (K : ℝ), 1 ≤ A ∧ 4 ≤ s₀ ∧ 0 < K ∧
       (∀ s ≥ s₀,
         Real.logb 2 s < (pitM A μ₀ s : ℝ) ∧
@@ -328,8 +333,7 @@ theorem step_thm2b_embedding {k : ℕ} (hk : 1 ≤ k) (W : ℕ)
     2 * k + (2 * k * W + 1) ≤ (2 * k + W) ^ 2 := by
   sorry
 
-/-- Theorem 2(c) ingredient (finite abelian group labels): under `HypothesisH c μ₀` and
-`KI04_Cor_7_4`, there exist uniform `A, s₀, C_0, K' > 0` (and `K'_C > 0` for each `C > 0`) such
+/-- Theorem 2(c) ingredient (finite abelian group labels): under `HypothesisH c μ₀` (unconditionally from `HypothesisH c μ₀`), there exist uniform `A, s₀, C_0, K' > 0` (and `K'_C > 0` for each `C > 0`) such
 that on every even-vertex graph `G` (`n = 2k ≥ 2`) with edge labels `w : Sym2 (Fin (2k)) → Γ`
 and target `γ* ∈ Γ`, setting `s := max (2*k) (C_0 * (2*k + |Γ|)^8)` yields:
 1. the explicit group-ring Pfaffian circuit `C_pad : IntCircuit s` tested by `pitSmallTest` /
@@ -339,7 +343,7 @@ and target `γ* ∈ Γ`, setting `s := max (2*k) (C_0 * (2*k + |Γ|)^8)` yields:
 3. total evaluation points `(2k)^2 * pitEvalPointCount A μ₀ s₀ s * 2^{pitMu A μ₀ s} * s^4` is
    at most `exp₂(exp₂(K' (log₂(2k + |Γ|))^(3/4)))`, and at most `exp₂(exp₂(K'_C (log₂(2k))^(3/4)))`
    whenever `|Γ| ≤ (2k)^C`. -/
-theorem thm_2c_decision_witness (hKI : KI04_Cor_7_4) (c : ℝ) (μ₀ : ℕ) (hH : HypothesisH c μ₀) :
+theorem thm_2c_decision_witness (c : ℝ) (μ₀ : ℕ) (hH : HypothesisH c μ₀) :
     ∃ (A s₀ C_0 : ℕ) (K' : ℝ), 1 ≤ A ∧ 4 ≤ s₀ ∧ 1 ≤ C_0 ∧ 0 < K' ∧
       (∀ s ≥ s₀,
         Real.logb 2 s < (pitM A μ₀ s : ℝ) ∧
@@ -395,11 +399,10 @@ theorem thm_2c_decision_witness (hKI : KI04_Cor_7_4) (c : ℝ) (μ₀ : ℕ) (hH
               expTwo (expTwo (K'_C * (Real.logb 2 ((2 * k : ℕ) : ℝ)) ^ (3 / 4 : ℝ)))) := by
   sorry
 
-/-- Theorem 2(a) ingredient (Exact Matching via `ZMod (k + 1)`): under `HypothesisH c μ₀` and
-`KI04_Cor_7_4`, the explicit `ZMod (k + 1)` Pfaffian circuit + PIT test + `selfReduce` decides
+/-- Theorem 2(a) ingredient (Exact Matching via `ZMod (k + 1)`): under `HypothesisH c μ₀` (unconditionally from `HypothesisH c μ₀`), the explicit `ZMod (k + 1)` Pfaffian circuit + PIT test + `selfReduce` decides
 and recovers a `target`-red perfect matching on any even-vertex graph (`n = 2k ≥ 2`) with total
 evaluation count bounded by `exp₂(exp₂(K' (log₂(2k))^(3/4)))`. -/
-theorem thm_2a_decision_witness (hKI : KI04_Cor_7_4) (c : ℝ) (μ₀ : ℕ) (hH : HypothesisH c μ₀) :
+theorem thm_2a_decision_witness (c : ℝ) (μ₀ : ℕ) (hH : HypothesisH c μ₀) :
     ∃ (A s₀ C_0 : ℕ) (K' : ℝ), 1 ≤ A ∧ 4 ≤ s₀ ∧ 1 ≤ C_0 ∧ 0 < K' ∧
       (∀ s ≥ s₀,
         Real.logb 2 s < (pitM A μ₀ s : ℝ) ∧
@@ -448,11 +451,11 @@ theorem thm_2a_decision_witness (hKI : KI04_Cor_7_4) (c : ℝ) (μ₀ : ℕ) (hH
   sorry
 
 /-- Theorem 2(b) ingredient (bounded integer weights via shifted `ZMod (2kW + 1)`): under
-`HypothesisH c μ₀` and `KI04_Cor_7_4`, the explicit shifted `ZMod (2kW + 1)` Pfaffian circuit +
+`HypothesisH c μ₀` , the explicit shifted `ZMod (2kW + 1)` Pfaffian circuit +
 PIT test + `selfReduce` decides and recovers a weight-`target` perfect matching with total
 evaluation count bounded by `exp₂(exp₂(K' (log₂(2k + W))^(3/4)))` (and `K'_C` whenever
 `W ≤ (2k)^C`). -/
-theorem thm_2b_decision_witness (hKI : KI04_Cor_7_4) (c : ℝ) (μ₀ : ℕ) (hH : HypothesisH c μ₀) :
+theorem thm_2b_decision_witness (c : ℝ) (μ₀ : ℕ) (hH : HypothesisH c μ₀) :
     ∃ (A s₀ C_0 : ℕ) (K' : ℝ), 1 ≤ A ∧ 4 ≤ s₀ ∧ 1 ≤ C_0 ∧ 0 < K' ∧
       (∀ s ≥ s₀,
         Real.logb 2 s < (pitM A μ₀ s : ℝ) ∧
@@ -516,9 +519,9 @@ theorem cor_1_a26_implies_H (hA26 : A26_MainTheorem.{0}) :
     ∃ (c : ℝ) (μ₀ : ℕ), HypothesisH c μ₀ := by
   sorry
 
-/-- Corollary 1 ingredient: conditional on `A26_MainTheorem` (**UNREFEREED**) and `KI04_Cor_7_4`,
+/-- Corollary 1 ingredient: conditional on `A26_MainTheorem` (**UNREFEREED**) ,
 `HypothesisH c μ₀` holds and yields the PIT test correctness and evaluation-point bounds. -/
-theorem cor_1_implication (hA26 : A26_MainTheorem.{0}) (hKI : KI04_Cor_7_4) :
+theorem cor_1_implication (hA26 : A26_MainTheorem.{0}) :
     ∃ (c : ℝ) (μ₀ : ℕ), HypothesisH c μ₀ ∧
       ∃ (A s₀ : ℕ) (K : ℝ), 1 ≤ A ∧ 4 ≤ s₀ ∧ 0 < K ∧
         (∀ s ≥ s₀,
@@ -554,11 +557,11 @@ theorem step_rem1_computes_to_o26 {R : Type u} {V : Type} [CommRing R]
     O26ExactComputes f s := by
   sorry
 
-/-- Remark 1 ingredient: conditional on `O26_Thm_1_1` (**UNREFEREED**) and `KI04_Cor_7_4`,
+/-- Remark 1 ingredient: conditional on `O26_Thm_1_1` (**UNREFEREED**) ,
 fixing `C₁ ≥ 4` and taking `μ = o26Mu C₁ N₀ s` yields explicit test correctness for
 `pitSmallTest` / `o26LargeTest` and sharpened evaluation-point bound
 `exp₂(exp₂(K'' (log₂ s)^(1/2) log₂ log₂(s + 2)))` (and `K'''`, `K'''_C` for matching sizes). -/
-theorem rem_1_tradeoff (hO26 : O26_Thm_1_1) (hKI : KI04_Cor_7_4) :
+theorem rem_1_tradeoff (hO26 : O26_Thm_1_1) :
     ∃ (C₁ N₀ s₀ : ℕ) (K'' : ℝ), 4 ≤ C₁ ∧ 3 ≤ N₀ ∧ 4 ≤ s₀ ∧ 0 < K'' ∧
       (∀ s ≥ s₀,
         Real.logb 2 s < (o26M C₁ N₀ s : ℝ) ∧

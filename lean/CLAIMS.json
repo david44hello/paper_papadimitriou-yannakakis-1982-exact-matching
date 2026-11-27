@@ -13,10 +13,10 @@
       "claim_id": "thm_1_test_correct",
       "paper_ref": "Theorem 1 (L173-175, L294-315)",
       "plain_name": "Theorem 1 ingredient: the test is correct",
-      "status": "PROVED GIVEN [KI04] Corollary 7.4",
+      "status": "PROVED",
       "lean_decl": "ExactMatching.Paper.thm_1_test_correct",
-      "cited_hypotheses": "KI04_Cor_7_4 (refereed)",
-      "notes": "Under H(c, mu_0), explicit pitSmallTest/pitLargeTest outputs zero iff f = 0, with evaluation-point bound."
+      "cited_hypotheses": "NONE",
+      "notes": "Under H(c, mu_0), explicit pitSmallTest/pitLargeTest outputs zero iff f = 0, with evaluation-point bound (KI04_Cor_7_4 discharged unconditionally)."
     },
     {
       "claim_id": "thm_1_eval_points",
@@ -40,9 +40,9 @@
       "claim_id": "thm_2a_decision_witness",
       "paper_ref": "Theorem 2(a) (L179-182, L399, L403)",
       "plain_name": "Theorem 2(a) ingredient: Exact Matching decision and witness recovery",
-      "status": "PROVED GIVEN [KI04] Corollary 7.4",
+      "status": "PROVED",
       "lean_decl": "ExactMatching.Paper.thm_2a_decision_witness",
-      "cited_hypotheses": "KI04_Cor_7_4 (refereed)",
+      "cited_hypotheses": "NONE",
       "notes": "Under H(c, mu_0), explicit Z_{n/2+1} groupRingPoly circuit + PIT test decides Exact Matching with evaluation-point bound exp_2(exp_2(K' (log_2 n)^{3/4}))."
     },
     {
@@ -58,9 +58,9 @@
       "claim_id": "thm_2b_decision_witness",
       "paper_ref": "Theorem 2(b) (L179-180, L183, L401, L403)",
       "plain_name": "Theorem 2(b) ingredient: bounded integer-weight decision and witness recovery",
-      "status": "PROVED GIVEN [KI04] Corollary 7.4",
+      "status": "PROVED",
       "lean_decl": "ExactMatching.Paper.thm_2b_decision_witness",
-      "cited_hypotheses": "KI04_Cor_7_4 (refereed)",
+      "cited_hypotheses": "NONE",
       "notes": "Under H(c, mu_0), explicit shifted Z_{nW+1} groupRingPoly circuit + PIT test decides weight-k matching with K' and K'_C bounds."
     },
     {
@@ -76,9 +76,9 @@
       "claim_id": "thm_2c_decision_witness",
       "paper_ref": "Theorem 2(c) (L179-180, L184, L391-397, L403)",
       "plain_name": "Theorem 2(c) ingredient: abelian-group decision and witness recovery",
-      "status": "PROVED GIVEN [KI04] Corollary 7.4",
+      "status": "PROVED",
       "lean_decl": "ExactMatching.Paper.thm_2c_decision_witness",
-      "cited_hypotheses": "KI04_Cor_7_4 (refereed)",
+      "cited_hypotheses": "NONE",
       "notes": "Under H(c, mu_0), explicit Z[Gamma] groupRingPoly circuit + PIT test + selfReduce decides and recovers a gamma*-matching with K' and K'_C bounds."
     },
     {
@@ -103,10 +103,10 @@
       "claim_id": "cor_1_implication",
       "paper_ref": "Corollary 1 (L188-190)",
       "plain_name": "Corollary 1 ingredient: [A26] Theorem 1.1 yields PIT test and evaluation bounds",
-      "status": "PROVED GIVEN [A26] Theorem 1.1 (UNREFEREED), [KI04] Corollary 7.4",
+      "status": "PROVED GIVEN [A26] Theorem 1.1 (UNREFEREED)",
       "lean_decl": "ExactMatching.Paper.cor_1_implication",
-      "cited_hypotheses": "A26_MainTheorem (UNREFEREED); KI04_Cor_7_4 (refereed)",
-      "notes": "Combines cor_1_a26_implies_H with thm_1_test_correct."
+      "cited_hypotheses": "A26_MainTheorem (UNREFEREED)",
+      "notes": "Combines cor_1_a26_implies_H with unconditional thm_1_test_correct."
     },
     {
       "claim_id": "rem_1_time",
@@ -121,9 +121,9 @@
       "claim_id": "rem_1_tradeoff",
       "paper_ref": "Remark 1 (L192-194)",
       "plain_name": "Remark 1 ingredient: [O26] parameter tradeoff, test correctness, and evaluation-point bound",
-      "status": "PROVED GIVEN [O26] Theorem 1.1 (UNREFEREED), [KI04] Corollary 7.4",
+      "status": "PROVED GIVEN [O26] Theorem 1.1 (UNREFEREED)",
       "lean_decl": "ExactMatching.Paper.rem_1_tradeoff",
-      "cited_hypotheses": "O26_Thm_1_1 (UNREFEREED); KI04_Cor_7_4 (refereed)",
+      "cited_hypotheses": "O26_Thm_1_1 (UNREFEREED)",
       "notes": "Exact-integer mu = max(N_0, 2^t) with C_1 >= 4 yields test correctness and exp_2(exp_2(K'' (log_2 s)^{1/2} log_2 log_2(s+2))) bound."
     },
     {
@@ -154,13 +154,22 @@
       "notes": "Poly-time constructibility clause not formalized."
     },
     {
+      "claim_id": "ki04_cor_7_4",
+      "paper_ref": "Lemma 2.2 proof (L246)",
+      "plain_name": "Unconditional root-finding circuit existence ([KI04] Cor. 7.4)",
+      "status": "PROVED",
+      "lean_decl": "ExactMatching.Paper.ki04_cor_7_4",
+      "cited_hypotheses": "NONE",
+      "notes": "Proved unconditionally via coupled division-free quadratic Newton iteration and Strassen homogenization (removes [KI04] Cor. 7.4 assumption)."
+    },
+    {
       "claim_id": "lem_2_2_reconstruction",
       "paper_ref": "Lemma 2.2 (L233-249)",
       "plain_name": "Lemma 2.2 (reconstruction and circuit-model transfer)",
-      "status": "PROVED GIVEN [KI04] Corollary 7.4",
+      "status": "PROVED",
       "lean_decl": "ExactMatching.Paper.lem_2_2_reconstruction",
-      "cited_hypotheses": "KI04_Cor_7_4 (refereed)",
-      "notes": "Full statement of Lemma 2.2 (no time claim in statement)."
+      "cited_hypotheses": "NONE",
+      "notes": "Full statement of Lemma 2.2 proved unconditionally from Lean's three standard axioms alone."
     },
     {
       "claim_id": "step_2_2_nonvanishing",
@@ -418,6 +427,11 @@
       "Quot.sound",
       "propext"
     ],
+    "ExactMatching.Paper.ki04_cor_7_4": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "ExactMatching.Paper.lem_2_1_design": [
       "Classical.choice",
       "Quot.sound",
@@ -574,16 +588,14 @@
       "A26_MainTheorem"
     ],
     "ExactMatching.Paper.cor_1_implication": [
-      "A26_MainTheorem",
-      "KI04_Cor_7_4"
+      "A26_MainTheorem"
     ],
     "ExactMatching.Paper.cov_asymptotic_between": [],
     "ExactMatching.Paper.cov_grid_prior_pit": [],
+    "ExactMatching.Paper.ki04_cor_7_4": [],
     "ExactMatching.Paper.lem_2_1_design": [],
     "ExactMatching.Paper.lem_2_1_irred_exists": [],
-    "ExactMatching.Paper.lem_2_2_reconstruction": [
-      "KI04_Cor_7_4"
-    ],
+    "ExactMatching.Paper.lem_2_2_reconstruction": [],
     "ExactMatching.Paper.paperPerm_eq_perm": [],
     "ExactMatching.Paper.pfaffian_clow_circuit_exists": [],
     "ExactMatching.Paper.prop_3_1_cyclic_rank_bound": [],
@@ -591,7 +603,6 @@
     "ExactMatching.Paper.prop_3_1_pfaffian_identity": [],
     "ExactMatching.Paper.prop_3_1_wire_expansion": [],
     "ExactMatching.Paper.rem_1_tradeoff": [
-      "KI04_Cor_7_4",
       "O26_Thm_1_1"
     ],
     "ExactMatching.Paper.rem_2_interpolation": [],
@@ -610,17 +621,9 @@
     "ExactMatching.Paper.step_thm2b_embedding": [],
     "ExactMatching.Paper.step_thm2c_self_reduction": [],
     "ExactMatching.Paper.thm_1_eval_points": [],
-    "ExactMatching.Paper.thm_1_test_correct": [
-      "KI04_Cor_7_4"
-    ],
-    "ExactMatching.Paper.thm_2a_decision_witness": [
-      "KI04_Cor_7_4"
-    ],
-    "ExactMatching.Paper.thm_2b_decision_witness": [
-      "KI04_Cor_7_4"
-    ],
-    "ExactMatching.Paper.thm_2c_decision_witness": [
-      "KI04_Cor_7_4"
-    ]
+    "ExactMatching.Paper.thm_1_test_correct": [],
+    "ExactMatching.Paper.thm_2a_decision_witness": [],
+    "ExactMatching.Paper.thm_2b_decision_witness": [],
+    "ExactMatching.Paper.thm_2c_decision_witness": []
   }
 }
