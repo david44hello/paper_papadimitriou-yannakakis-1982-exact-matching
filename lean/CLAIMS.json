@@ -1,0 +1,626 @@
+{
+  "paper": [
+    {
+      "claim_id": "thm_1_time",
+      "paper_ref": "Theorem 1 (L172-174, L280-321)",
+      "plain_name": "Theorem 1 (deterministic time bound)",
+      "status": "not formalized: no time-bounded computation in Lean's library",
+      "lean_decl": "NONE",
+      "cited_hypotheses": "NONE",
+      "notes": "Time-bounded Turing-machine / bit-complexity claim not formalized; proved mathematical ingredients stand apart below."
+    },
+    {
+      "claim_id": "thm_1_test_correct",
+      "paper_ref": "Theorem 1 (L172-174, L293-314)",
+      "plain_name": "Theorem 1 ingredient: the test is correct",
+      "status": "PROVED GIVEN [KI04] Corollary 7.4",
+      "lean_decl": "ExactMatching.Paper.thm_1_test_correct",
+      "cited_hypotheses": "KI04_Cor_7_4 (refereed)",
+      "notes": "Under H(c, mu_0), explicit pitSmallTest/pitLargeTest outputs zero iff f = 0, with evaluation-point bound."
+    },
+    {
+      "claim_id": "thm_1_eval_points",
+      "paper_ref": "Theorem 1 (L172-174, L316-320)",
+      "plain_name": "Theorem 1 ingredient: the number of evaluation points",
+      "status": "PROVED",
+      "lean_decl": "ExactMatching.Paper.thm_1_eval_points",
+      "cited_hypotheses": "NONE",
+      "notes": "pitEvalPointCount * 2^mu * s^d <= exp_2(exp_2(K (log_2 s)^{3/4}))."
+    },
+    {
+      "claim_id": "thm_2a_time",
+      "paper_ref": "Theorem 2(a) (L178-181, L398, L402)",
+      "plain_name": "Theorem 2(a) (Exact Matching deterministic time bound)",
+      "status": "not formalized: no time-bounded computation in Lean's library",
+      "lean_decl": "NONE",
+      "cited_hypotheses": "NONE",
+      "notes": "Deterministic time claim not formalized; proved ingredients stand apart below."
+    },
+    {
+      "claim_id": "thm_2a_decision_witness",
+      "paper_ref": "Theorem 2(a) (L178-181, L398, L402)",
+      "plain_name": "Theorem 2(a) ingredient: Exact Matching decision and witness recovery",
+      "status": "PROVED GIVEN [KI04] Corollary 7.4",
+      "lean_decl": "ExactMatching.Paper.thm_2a_decision_witness",
+      "cited_hypotheses": "KI04_Cor_7_4 (refereed)",
+      "notes": "Under H(c, mu_0), explicit Z_{n/2+1} groupRingPoly circuit + PIT test decides Exact Matching with evaluation-point bound exp_2(exp_2(K' (log_2 n)^{3/4}))."
+    },
+    {
+      "claim_id": "thm_2b_time",
+      "paper_ref": "Theorem 2(b) (L178-179, L182, L400, L402)",
+      "plain_name": "Theorem 2(b) (bounded integer weights deterministic time bound)",
+      "status": "not formalized: no time-bounded computation in Lean's library",
+      "lean_decl": "NONE",
+      "cited_hypotheses": "NONE",
+      "notes": "Deterministic time claim not formalized; proved ingredients stand apart below."
+    },
+    {
+      "claim_id": "thm_2b_decision_witness",
+      "paper_ref": "Theorem 2(b) (L178-179, L182, L400, L402)",
+      "plain_name": "Theorem 2(b) ingredient: bounded integer-weight decision and witness recovery",
+      "status": "PROVED GIVEN [KI04] Corollary 7.4",
+      "lean_decl": "ExactMatching.Paper.thm_2b_decision_witness",
+      "cited_hypotheses": "KI04_Cor_7_4 (refereed)",
+      "notes": "Under H(c, mu_0), explicit shifted Z_{nW+1} groupRingPoly circuit + PIT test decides weight-k matching with K' and K'_C bounds."
+    },
+    {
+      "claim_id": "thm_2c_time",
+      "paper_ref": "Theorem 2(c) (L178-179, L183, L390-396, L402)",
+      "plain_name": "Theorem 2(c) (abelian-group labels deterministic time bound)",
+      "status": "not formalized: no time-bounded computation in Lean's library",
+      "lean_decl": "NONE",
+      "cited_hypotheses": "NONE",
+      "notes": "Deterministic time claim not formalized; proved ingredients stand apart below."
+    },
+    {
+      "claim_id": "thm_2c_decision_witness",
+      "paper_ref": "Theorem 2(c) (L178-179, L183, L390-396, L402)",
+      "plain_name": "Theorem 2(c) ingredient: abelian-group decision and witness recovery",
+      "status": "PROVED GIVEN [KI04] Corollary 7.4",
+      "lean_decl": "ExactMatching.Paper.thm_2c_decision_witness",
+      "cited_hypotheses": "KI04_Cor_7_4 (refereed)",
+      "notes": "Under H(c, mu_0), explicit Z[Gamma] groupRingPoly circuit + PIT test + selfReduce decides and recovers a gamma*-matching with K' and K'_C bounds."
+    },
+    {
+      "claim_id": "cor_1_time",
+      "paper_ref": "Corollary 1 (L187-189)",
+      "plain_name": "Corollary 1 (deterministic time bound from [A26])",
+      "status": "not formalized: no time-bounded computation in Lean's library",
+      "lean_decl": "NONE",
+      "cited_hypotheses": "NONE",
+      "notes": "Inherits time-bound gap of Theorems 1 and 2."
+    },
+    {
+      "claim_id": "cor_1_a26_implies_H",
+      "paper_ref": "Corollary 1 (L170, L188)",
+      "plain_name": "Corollary 1 ingredient: [A26] Theorem 1.1 implies Hypothesis H(c)",
+      "status": "PROVED GIVEN [A26] Theorem 1.1 (UNREFEREED)",
+      "lean_decl": "ExactMatching.Paper.cor_1_a26_implies_H",
+      "cited_hypotheses": "A26_MainTheorem (UNREFEREED)",
+      "notes": "Instantiation of A26_MainTheorem at p=0, F=Q via paperPerm_eq_perm."
+    },
+    {
+      "claim_id": "cor_1_implication",
+      "paper_ref": "Corollary 1 (L187-189)",
+      "plain_name": "Corollary 1 ingredient: [A26] Theorem 1.1 yields PIT test and evaluation bounds",
+      "status": "PROVED GIVEN [A26] Theorem 1.1 (UNREFEREED), [KI04] Corollary 7.4",
+      "lean_decl": "ExactMatching.Paper.cor_1_implication",
+      "cited_hypotheses": "A26_MainTheorem (UNREFEREED); KI04_Cor_7_4 (refereed)",
+      "notes": "Combines cor_1_a26_implies_H with thm_1_test_correct."
+    },
+    {
+      "claim_id": "rem_1_time",
+      "paper_ref": "Remark 1 (L191-193)",
+      "plain_name": "Remark 1 (deterministic time bound from [O26])",
+      "status": "not formalized: no time-bounded computation in Lean's library",
+      "lean_decl": "NONE",
+      "cited_hypotheses": "NONE",
+      "notes": "Inherits time-bound gap of Theorems 1 and 2."
+    },
+    {
+      "claim_id": "rem_1_tradeoff",
+      "paper_ref": "Remark 1 (L191-193)",
+      "plain_name": "Remark 1 ingredient: [O26] parameter tradeoff, test correctness, and evaluation-point bound",
+      "status": "PROVED GIVEN [O26] Theorem 1.1 (UNREFEREED), [KI04] Corollary 7.4",
+      "lean_decl": "ExactMatching.Paper.rem_1_tradeoff",
+      "cited_hypotheses": "O26_Thm_1_1 (UNREFEREED); KI04_Cor_7_4 (refereed)",
+      "notes": "Exact-integer mu = max(N_0, 2^t) with C_1 >= 4 yields test correctness and exp_2(exp_2(K'' (log_2 s)^{1/2} log_2 log_2(s+2))) bound."
+    },
+    {
+      "claim_id": "lem_2_1_irred_exists",
+      "paper_ref": "Lemma 2.1 proof (L223)",
+      "plain_name": "Lemma 2.1 ingredient: irreducible polynomial over F_2",
+      "status": "PROVED",
+      "lean_decl": "ExactMatching.Paper.lem_2_1_irred_exists",
+      "cited_hypotheses": "NONE",
+      "notes": "Existence of monic irreducible degree-r polynomial over ZMod 2."
+    },
+    {
+      "claim_id": "lem_2_1_design",
+      "paper_ref": "Lemma 2.1 (L218-224)",
+      "plain_name": "Lemma 2.1 (explicit polynomial-graph design)",
+      "status": "PROVED",
+      "lean_decl": "ExactMatching.Paper.lem_2_1_design",
+      "cited_hypotheses": "NONE",
+      "notes": "Explicit F_q polynomial-graph sets S_1..S_n in [l] with l < 2m^2, |S_i| = m, |S_i cap S_j| < log_2 n."
+    },
+    {
+      "claim_id": "lem_2_1_time",
+      "paper_ref": "Lemma 2.1 (L219, L223)",
+      "plain_name": "Lemma 2.1 (deterministic poly(n)-time constructibility)",
+      "status": "not formalized: no time-bounded computation in Lean's library",
+      "lean_decl": "NONE",
+      "cited_hypotheses": "NONE",
+      "notes": "Poly-time constructibility clause not formalized."
+    },
+    {
+      "claim_id": "lem_2_2_reconstruction",
+      "paper_ref": "Lemma 2.2 (L232-248)",
+      "plain_name": "Lemma 2.2 (reconstruction and circuit-model transfer)",
+      "status": "PROVED GIVEN [KI04] Corollary 7.4",
+      "lean_decl": "ExactMatching.Paper.lem_2_2_reconstruction",
+      "cited_hypotheses": "KI04_Cor_7_4 (refereed)",
+      "notes": "Full statement of Lemma 2.2 (no time claim in statement)."
+    },
+    {
+      "claim_id": "step_2_2_nonvanishing",
+      "paper_ref": "Lemma 2.2 proof (L239, L243)",
+      "plain_name": "Multivariate polynomial nonvanishing on a grid",
+      "status": "PROVED",
+      "lean_decl": "ExactMatching.Paper.step_2_2_nonvanishing",
+      "cited_hypotheses": "NONE",
+      "notes": "Grid nonvanishing for |S| > totalDegree."
+    },
+    {
+      "claim_id": "step_2_2_model_transfer",
+      "paper_ref": "Lemma 2.2 proof (L247)",
+      "plain_name": "Circuit-model transfer and functional-to-formal lift",
+      "status": "PROVED",
+      "lean_decl": "ExactMatching.Paper.step_2_2_model_transfer",
+      "cited_hypotheses": "NONE",
+      "notes": "RatCircuit translates to Computes in <= 3*size gates; functional equality on Q^m implies formal equality."
+    },
+    {
+      "claim_id": "prop_3_1_pfaffian_identity",
+      "paper_ref": "Proposition 3.1 (L328-350)",
+      "plain_name": "Proposition 3.1 ingredient: group-ring Tutte-Pfaffian identity",
+      "status": "PROVED",
+      "lean_decl": "ExactMatching.Paper.prop_3_1_pfaffian_identity",
+      "cited_hypotheses": "NONE",
+      "notes": "Pf(T) = sum P_gamma e_gamma, coeffs in {-1,0,1}, homogeneous deg k, P_{gamma*} != 0 iff matching exists."
+    },
+    {
+      "claim_id": "prop_3_1_cyclic_rank_bound",
+      "paper_ref": "Proposition 3.1 proof (L361)",
+      "plain_name": "Proposition 3.1 ingredient: cyclic factor rank bound",
+      "status": "PROVED",
+      "lean_decl": "ExactMatching.Paper.prop_3_1_cyclic_rank_bound",
+      "cited_hypotheses": "NONE",
+      "notes": "r <= max(1, log_2 |Gamma|)."
+    },
+    {
+      "claim_id": "pfaffian_clow_circuit_exists",
+      "paper_ref": "Proposition 3.1 proof (L352)",
+      "plain_name": "Unconditional division-free {0, +-1}-constant Pfaffian circuit",
+      "status": "PROVED",
+      "lean_decl": "ExactMatching.Paper.pfaffian_clow_circuit_exists",
+      "cited_hypotheses": "NONE",
+      "notes": "Alternating-clow-sequence DP circuit of size O(k^4) computing universalPfaffian k (removes [MSV04] assumption)."
+    },
+    {
+      "claim_id": "prop_3_1_wire_expansion",
+      "paper_ref": "Proposition 3.1 proof (L354-361)",
+      "plain_name": "Proposition 3.1 ingredient: Z[Gamma] wire expansion",
+      "status": "PROVED",
+      "lean_decl": "ExactMatching.Paper.prop_3_1_wire_expansion",
+      "cited_hypotheses": "NONE",
+      "notes": "Expands any {0,+-1}-constant universalPfaffian circuit into a {0,+-1}-constant Z-circuit for groupRingPoly."
+    },
+    {
+      "claim_id": "prop_3_1_pfaffian_circuit",
+      "paper_ref": "Proposition 3.1 (L328-362)",
+      "plain_name": "Proposition 3.1 (group-ring Pfaffian identity and circuit construction)",
+      "status": "PROVED",
+      "lean_decl": "ExactMatching.Paper.prop_3_1_pfaffian_circuit",
+      "cited_hypotheses": "NONE",
+      "notes": "Combined algebraic + explicit O((n+|Gamma|)^8) {0,+-1}-constant circuit construction."
+    },
+    {
+      "claim_id": "prop_3_1_time",
+      "paper_ref": "Proposition 3.1 (L329, L352, L361)",
+      "plain_name": "Proposition 3.1 (deterministic poly(n, |Gamma|)-time constructibility)",
+      "status": "not formalized: no time-bounded computation in Lean's library",
+      "lean_decl": "NONE",
+      "cited_hypotheses": "NONE",
+      "notes": "Poly-time constructibility clause not formalized."
+    },
+    {
+      "claim_id": "rem_2_interpolation",
+      "paper_ref": "Remark 2 (L405-407)",
+      "plain_name": "Remark 2 (alternative Lagrange interpolation identity)",
+      "status": "PROVED",
+      "lean_decl": "ExactMatching.Paper.rem_2_interpolation",
+      "cited_hypotheses": "NONE",
+      "notes": "Graph-independent integer Lagrange multipliers of magnitude <= (2(2kW)+2)^(2kW) recovering (2kW)! * weightFiberPoly."
+    },
+    {
+      "claim_id": "paperPerm_eq_perm",
+      "paper_ref": "Sec 1 (L164, L170)",
+      "plain_name": "Permanent row/column convention agreement",
+      "status": "PROVED",
+      "lean_decl": "ExactMatching.Paper.paperPerm_eq_perm",
+      "cited_hypotheses": "NONE",
+      "notes": "paperPerm R mu = perm R mu (paper vs [A26])."
+    },
+    {
+      "claim_id": "cov_asymptotic_between",
+      "paper_ref": "Intro L73, Fig 1 L159, L176",
+      "plain_name": "Asymptotic rate identity and comparisons",
+      "status": "PROVED",
+      "lean_decl": "ExactMatching.Paper.cov_asymptotic_between",
+      "cited_hypotheses": "NONE",
+      "notes": "exp_2(exp_2(K (log_2 s)^{3/4})) sits strictly between 2^{(log_2 s)^d} and 2^{s^eps}."
+    },
+    {
+      "claim_id": "cov_grid_prior_pit",
+      "paper_ref": "Theorem 1 proof (L293)",
+      "plain_name": "Small-input grid evaluation size bound",
+      "status": "PROVED",
+      "lean_decl": "ExactMatching.Paper.cov_grid_prior_pit",
+      "cited_hypotheses": "NONE",
+      "notes": "(s+1)^s <= 2^{2 s log_2 s} for s >= 2 (Table 1 simplex bound binom(2s,s) <= 4^s also used in L293/L312)."
+    },
+    {
+      "claim_id": "cov_tab1_rnc_rp",
+      "paper_ref": "Table 1 caption (L209)",
+      "plain_name": "Table 1 RNC/RP/coRP randomized parallel complexity",
+      "status": "not formalized: no randomized or parallel complexity in Lean's library",
+      "lean_decl": "NONE",
+      "cited_hypotheses": "NONE",
+      "notes": "Randomized/parallel complexity sentence not formalized."
+    },
+    {
+      "claim_id": "step_thm1_eq1",
+      "paper_ref": "Theorem 1 eq. (1) (L287-290)",
+      "plain_name": "Theorem 1 parameter lower bound eq. (1)",
+      "status": "PROVED",
+      "lean_decl": "ExactMatching.Paper.step_thm1_eq1",
+      "cited_hypotheses": "NONE",
+      "notes": "mu >= mu_0 and mu^{c (log_2 mu)^{1/3}} = exp_2(c (log_2 mu)^{4/3}) >= s^kappa."
+    },
+    {
+      "claim_id": "step_thm1_threshold",
+      "paper_ref": "Theorem 1 proof (L291)",
+      "plain_name": "Theorem 1 threshold s_0",
+      "status": "PROVED",
+      "lean_decl": "ExactMatching.Paper.step_thm1_threshold",
+      "cited_hypotheses": "NONE",
+      "notes": "Existence of s_0 >= 4 with log_2 s < m < s and s*mu + 1 <= s^2 for all s >= s_0."
+    },
+    {
+      "claim_id": "step_thm1_ryser",
+      "paper_ref": "Theorem 1 proof (L301-304)",
+      "plain_name": "Ryser's formula for the permanent",
+      "status": "PROVED",
+      "lean_decl": "ExactMatching.Paper.step_thm1_ryser",
+      "cited_hypotheses": "NONE",
+      "notes": "ryserPerm M = M.permanent over every commutative ring."
+    },
+    {
+      "claim_id": "step_thm1_small_inputs",
+      "paper_ref": "Theorem 1 proof (L293)",
+      "plain_name": "Small-input mod-2^{B_0} grid test exactness",
+      "status": "PROVED",
+      "lean_decl": "ExactMatching.Paper.step_thm1_small_inputs",
+      "cited_hypotheses": "NONE",
+      "notes": "pitSmallTest s C iff C.evalPoly = 0."
+    },
+    {
+      "claim_id": "step_thm1_modulus_exact",
+      "paper_ref": "Theorem 1 proof (L310-314)",
+      "plain_name": "Large-input mod-2^B exactness",
+      "status": "PROVED",
+      "lean_decl": "ExactMatching.Paper.step_thm1_modulus_exact",
+      "cited_hypotheses": "NONE",
+      "notes": "0 <= v_i <= (s mu^2)^mu, |f(v)| < 2^{B-1}, and mod-2^B evaluation equals 0 iff f(v) = 0."
+    },
+    {
+      "claim_id": "step_thm1_B_bound",
+      "paper_ref": "Theorem 1 proof (L297, Fig 2 L262)",
+      "plain_name": "Modulus bit-length bound B = O(s^{3/2} log s)",
+      "status": "PROVED",
+      "lean_decl": "ExactMatching.Paper.step_thm1_B_bound",
+      "cited_hypotheses": "NONE",
+      "notes": "B <= 10 s^{3/2} log_2 s when m < s."
+    },
+    {
+      "claim_id": "step_rem1_ln_vs_log2",
+      "paper_ref": "Remark 1 (L192)",
+      "plain_name": "Natural vs base-2 double-log comparison",
+      "status": "PROVED",
+      "lean_decl": "ExactMatching.Paper.step_rem1_ln_vs_log2",
+      "cited_hypotheses": "NONE",
+      "notes": "(ln mu)^2 / (ln ln mu)^2 > (log_2 mu)^2 / (log_2 log_2 mu)^2 for all mu >= 3."
+    },
+    {
+      "claim_id": "step_rem1_computes_to_o26",
+      "paper_ref": "Remark 1 (L192)",
+      "plain_name": "[A26] Computes implies [O26] O26ExactComputes",
+      "status": "PROVED",
+      "lean_decl": "ExactMatching.Paper.step_rem1_computes_to_o26",
+      "cited_hypotheses": "NONE",
+      "notes": "Circuit model inclusion from [A26] into [O26] exact circuits."
+    },
+    {
+      "claim_id": "step_thm2_odd_n",
+      "paper_ref": "Theorem 2 proof (L388)",
+      "plain_name": "Odd-vertex graphs have no perfect matching",
+      "status": "PROVED",
+      "lean_decl": "ExactMatching.Paper.step_thm2_odd_n",
+      "cited_hypotheses": "NONE",
+      "notes": "Odd n implies no perfect matching exists."
+    },
+    {
+      "claim_id": "step_thm2c_self_reduction",
+      "paper_ref": "Theorem 2(c) proof (L396)",
+      "plain_name": "Edge-deletion self-reduction",
+      "status": "PROVED",
+      "lean_decl": "ExactMatching.Paper.step_thm2c_self_reduction",
+      "cited_hypotheses": "NONE",
+      "notes": "selfReduce recovers a valid gamma*-matching iff one exists in <= |E|+1 <= n^2 oracle calls."
+    },
+    {
+      "claim_id": "step_thm2a_embedding",
+      "paper_ref": "Theorem 2(a) proof (L398)",
+      "plain_name": "Exact Matching cyclic embedding Z_{n/2+1}",
+      "status": "PROVED",
+      "lean_decl": "ExactMatching.Paper.step_thm2a_embedding",
+      "cited_hypotheses": "NONE",
+      "notes": "|M cap R| = k iff label sum = k mod (n/2+1), and n + (n/2+1) <= n^2."
+    },
+    {
+      "claim_id": "step_thm2b_embedding",
+      "paper_ref": "Theorem 2(b) proof (L400)",
+      "plain_name": "Bounded integer weights shifted cyclic embedding Z_{nW+1}",
+      "status": "PROVED",
+      "lean_decl": "ExactMatching.Paper.step_thm2b_embedding",
+      "cited_hypotheses": "NONE",
+      "notes": "w(M) = k iff shifted sum = k' mod (nW+1), and n + (nW+1) <= (n+W)^2."
+    },
+    {
+      "claim_id": "nonclaim_history_defs_disc",
+      "paper_ref": "Abstract L58, Sec 1 L66-73, Figs 1-3, Table 1 lit cols, Discussion L409-419, Ack L421-422",
+      "plain_name": "Historical background, definitions, schematic figures, open directions",
+      "status": "NOT COUNTED",
+      "lean_decl": "NONE",
+      "cited_hypotheses": "NONE",
+      "notes": "Non-claims; definitions live in ExactMatching/Defs/."
+    }
+  ],
+  "axioms": {
+    "ExactMatching.Paper.cor_1_a26_implies_H": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ExactMatching.Paper.cor_1_implication": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ExactMatching.Paper.cov_asymptotic_between": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ExactMatching.Paper.cov_grid_prior_pit": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ExactMatching.Paper.lem_2_1_design": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ExactMatching.Paper.lem_2_1_irred_exists": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ExactMatching.Paper.lem_2_2_reconstruction": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ExactMatching.Paper.paperPerm_eq_perm": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ExactMatching.Paper.pfaffian_clow_circuit_exists": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ExactMatching.Paper.prop_3_1_cyclic_rank_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ExactMatching.Paper.prop_3_1_pfaffian_circuit": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ExactMatching.Paper.prop_3_1_pfaffian_identity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ExactMatching.Paper.prop_3_1_wire_expansion": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ExactMatching.Paper.rem_1_tradeoff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ExactMatching.Paper.rem_2_interpolation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ExactMatching.Paper.step_2_2_model_transfer": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ExactMatching.Paper.step_2_2_nonvanishing": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ExactMatching.Paper.step_rem1_computes_to_o26": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ExactMatching.Paper.step_rem1_ln_vs_log2": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ExactMatching.Paper.step_thm1_B_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ExactMatching.Paper.step_thm1_eq1": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ExactMatching.Paper.step_thm1_modulus_exact": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ExactMatching.Paper.step_thm1_ryser": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ExactMatching.Paper.step_thm1_small_inputs": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ExactMatching.Paper.step_thm1_threshold": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ExactMatching.Paper.step_thm2_odd_n": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ExactMatching.Paper.step_thm2a_embedding": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ExactMatching.Paper.step_thm2b_embedding": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ExactMatching.Paper.step_thm2c_self_reduction": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ExactMatching.Paper.thm_1_eval_points": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ExactMatching.Paper.thm_1_test_correct": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ExactMatching.Paper.thm_2a_decision_witness": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ExactMatching.Paper.thm_2b_decision_witness": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ExactMatching.Paper.thm_2c_decision_witness": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "inputs": {
+    "ExactMatching.Paper.cor_1_a26_implies_H": [
+      "A26_MainTheorem"
+    ],
+    "ExactMatching.Paper.cor_1_implication": [
+      "A26_MainTheorem",
+      "KI04_Cor_7_4"
+    ],
+    "ExactMatching.Paper.cov_asymptotic_between": [],
+    "ExactMatching.Paper.cov_grid_prior_pit": [],
+    "ExactMatching.Paper.lem_2_1_design": [],
+    "ExactMatching.Paper.lem_2_1_irred_exists": [],
+    "ExactMatching.Paper.lem_2_2_reconstruction": [
+      "KI04_Cor_7_4"
+    ],
+    "ExactMatching.Paper.paperPerm_eq_perm": [],
+    "ExactMatching.Paper.pfaffian_clow_circuit_exists": [],
+    "ExactMatching.Paper.prop_3_1_cyclic_rank_bound": [],
+    "ExactMatching.Paper.prop_3_1_pfaffian_circuit": [],
+    "ExactMatching.Paper.prop_3_1_pfaffian_identity": [],
+    "ExactMatching.Paper.prop_3_1_wire_expansion": [],
+    "ExactMatching.Paper.rem_1_tradeoff": [
+      "KI04_Cor_7_4",
+      "O26_Thm_1_1"
+    ],
+    "ExactMatching.Paper.rem_2_interpolation": [],
+    "ExactMatching.Paper.step_2_2_model_transfer": [],
+    "ExactMatching.Paper.step_2_2_nonvanishing": [],
+    "ExactMatching.Paper.step_rem1_computes_to_o26": [],
+    "ExactMatching.Paper.step_rem1_ln_vs_log2": [],
+    "ExactMatching.Paper.step_thm1_B_bound": [],
+    "ExactMatching.Paper.step_thm1_eq1": [],
+    "ExactMatching.Paper.step_thm1_modulus_exact": [],
+    "ExactMatching.Paper.step_thm1_ryser": [],
+    "ExactMatching.Paper.step_thm1_small_inputs": [],
+    "ExactMatching.Paper.step_thm1_threshold": [],
+    "ExactMatching.Paper.step_thm2_odd_n": [],
+    "ExactMatching.Paper.step_thm2a_embedding": [],
+    "ExactMatching.Paper.step_thm2b_embedding": [],
+    "ExactMatching.Paper.step_thm2c_self_reduction": [],
+    "ExactMatching.Paper.thm_1_eval_points": [],
+    "ExactMatching.Paper.thm_1_test_correct": [
+      "KI04_Cor_7_4"
+    ],
+    "ExactMatching.Paper.thm_2a_decision_witness": [
+      "KI04_Cor_7_4"
+    ],
+    "ExactMatching.Paper.thm_2b_decision_witness": [
+      "KI04_Cor_7_4"
+    ],
+    "ExactMatching.Paper.thm_2c_decision_witness": [
+      "KI04_Cor_7_4"
+    ]
+  }
+}
