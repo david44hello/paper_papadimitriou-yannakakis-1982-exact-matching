@@ -1,7 +1,6 @@
 version: v0.4
 project:
-  name: Exact Matching (Papadimitriou–Yannakakis, 1982) in Deterministic Time 2^(n^o(1)) from Permanent
-    Lower Bounds
+  name: Exact Matching in Subexponential Time
   description: Under the paper's stated permanent lower-bound hypothesis H(c), Lean 4 verifies test correctness
     and the evaluation-point count for quantitative low-degree integer polynomial identity testing (Theorem
     1), together with the group-ring Pfaffian decision and witness-recovery reductions for Exact Matching
@@ -25,8 +24,7 @@ classification:
   - 05C70
   - 68Q25
 sources:
-- title: Exact Matching (Papadimitriou–Yannakakis, 1982) in Deterministic Time 2^(n^o(1)) from Permanent
-    Lower Bounds
+- title: Exact Matching in Subexponential Time
   authors:
   - Dave Goel
   id: 10.5281/zenodo.24587196
